@@ -22,7 +22,7 @@ function Decimal(val) {
             }
         }
 
-        rounded = dm.processThirdDecimal(rounded);
+        rounded = thirdDecimal == 0 ? rounded : dm.processThirdDecimal(rounded);
 
         this.value = rounded;
     }
