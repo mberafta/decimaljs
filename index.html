@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        Decimal manager
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <h1>Decimal manager</h1>
+            <p>Application de gestion des arrondis côté front</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form>
+                    <div class="form-group">
+                        <label for="decimal">Valeur décimale</label>
+                        <input type="decimal" class="form-control" id="decimal">
+                    </div>
+                    <div class="form-group">
+                        <label for="tva">Taux de TVA (%)</label>
+                        <input type="tva" class="form-control" id="tva">
+                    </div>
+                    <div class="form-group">
+                        <label for="discount">Remise (% ou valeur)</label>
+                        <input type="qty" class="form-control" id="discount">
+                    </div>
+                    <div class="form-group">
+                        <label for="qty">Quantité</label>
+                        <input type="qty" class="form-control" id="qty">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <button class="btn btn-primary" id="btn">Valider</button>
+                        </div>
+                        <div class="col-md-3 offset-md-3" style="padding-top:1em;">
+                            <p style="font-weight: bold; font-size: 16px;">
+                                <span>Valeur décimale arrondie</span> &nbsp; &nbsp;
+                                <span id="roundedDecimal" style="color:blueviolet;"></span>
+                            </p>
+                            <p style="font-weight: bold; font-size: 16px;">
+                                <span>Valeur remise arrondie</span> &nbsp; &nbsp;
+                                <span id="roundedDiscount" style="color:blueviolet;"></span>
+                            </p>
+                            <p style="font-weight: bold; font-size: 16px;">
+                                <span>RÉSULTAT</span> &nbsp; &nbsp;
+                                <span id="result" style="color:blueviolet;"></span>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="decimal.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
