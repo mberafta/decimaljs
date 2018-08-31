@@ -127,7 +127,11 @@ const decimalManager = (() => {
                 sndDecimal++;
             }
             else {
-                firstDecimal = 1;
+                firstDecimal++;
+                if (firstDecimal == 10) {
+                    firstDecimal = 0;
+                    parts[0] = +parts[0] + 1;
+                }
                 sndDecimal = 0;
             }
 
