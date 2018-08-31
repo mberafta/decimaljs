@@ -9,6 +9,8 @@ function round(val, tva, qty, discount) {
 }
 
 function computeTotal() {
+    errorBlock.style.display = 'none';
+
     let decimal = document.getElementById('decimal').value,
         tva = +document.getElementById('tva').value || 0,
         qty = +document.getElementById('qty').value || 1,

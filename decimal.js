@@ -1,9 +1,13 @@
+var errorBlock = document.getElementById('alert'),
+    errorDisplayer = document.getElementById('error');
+
 /**
  * Classe Decimal traitant un nombre quelconque et renvoyant son arrondi à 2 décimales
  * @function Decimal
  * @param {number} val 
  */
 function Decimal(val) {
+    let test = !isNaN(+val);
     const dm = decimalManager();
     try {
         let rounded;
@@ -14,7 +18,9 @@ function Decimal(val) {
             separatedParts.splice(separatedParts.length - 1, 1);
             separatedParts.push(thirdDecimal);
         }
+
         rounded = separatedParts[0];
+        
         if (separatedParts.length > 1) {
             rounded += '.';
             for (let j = 1; j < separatedParts.length; j++) {
@@ -27,7 +33,8 @@ function Decimal(val) {
         this.value = rounded;
     }
     catch (e) {
-        console.log(e);
+        errorBlock.style.display = 'block';
+        errorDisplayer.innerText = e.toString();
     }
 }
 
