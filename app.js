@@ -18,16 +18,21 @@ function computeTotal() {
         result = document.getElementById('result'),
         roundedDecimal = document.getElementById('roundedDecimal'),
         roundedDiscount = document.getElementById('roundedDiscount'),
+        roundedTva = document.getElementById('roundedTva'),
         rounded;
 
+    // x = prix, r = remise, t = tva, q = quantité, f = fonction arrondi
+    // prix final y = f(f(x*(1+t)) - f(x*r*(1+t))) * q
     let roundedDiscountValue = new Decimal(+decimal * +discount * (1 + +tva)).value,
-        roundedDecimalValue = new Decimal(+decimal * (1 + +tva)).value;
+        roundedDecimalValue = new Decimal(+decimal * (1 + +tva)).value,
+        roundedTvaValue = new Decimal(+decimal * +tva).value;
 
     rounded = qty * new Decimal(roundedDecimalValue - roundedDiscountValue).value;
 
     result.innerText = rounded;
-    roundedDiscount.innerText = roundedDiscountValue;
+    roundedDiscount.innerText = qty * roundedDiscountValue;
     roundedDecimal.innerText = roundedDecimalValue;
+    roundedTva.innerText = roundedTvaValue;
 };
 
 document.getElementById('btn').addEventListener('click', function (event) {

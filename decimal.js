@@ -8,7 +8,14 @@ var errorBlock = document.getElementById('alert'),
  */
 function Decimal(val) {
     let test = !isNaN(+val);
+    if (!test) {
+        errorBlock.style.display = 'block';
+        errorDisplayer.innerText = 'Veuillez saisir un nombre valide';
+    }
+
+    // Injection du service
     const dm = decimalManager();
+
     try {
         let rounded;
         let separatedParts = dm.getSeparatedParts(val),
@@ -20,11 +27,18 @@ function Decimal(val) {
         }
 
         rounded = separatedParts[0];
-        
+
         if (separatedParts.length > 1) {
             rounded += '.';
             for (let j = 1; j < separatedParts.length; j++) {
-                rounded += separatedParts[j]
+                if(j == separatedParts.length - 1){
+                    if(thirdDecimal != 0){
+                        rounded += separatedParts[j];
+                    }
+                }
+                else{
+                    rounded += separatedParts[j];
+                }
             }
         }
 
