@@ -7,5 +7,5 @@ How to use it ?
 You use the Decimal constructor like this : 
 
 let number = 1.23456789,
-    roundedNumber = new Decimal(number).value; // returns 1.24
+    roundedNumber = new Decimal(number).value; // returns 1.23
 
